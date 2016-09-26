@@ -7,7 +7,7 @@
 QT       -= core gui
 
 TARGET = ObjectModel
-TEMPLATE = lib
+TEMPLATE = app
 
 DEFINES += OBJECTMODEL_LIBRARY
 
@@ -18,10 +18,8 @@ SOURCES += \
     AField.cpp \
     AConstructor.cpp \
     ADestructor.cpp \
-    AReflectManager.cpp \
     AAnnotation.cpp \
     AString.cpp \
-    AList.cpp \
     AParameter.cpp \
     ALong.cpp \
     AInteger.cpp \
@@ -31,7 +29,12 @@ SOURCES += \
     AChar.cpp \
     AUnsignedLong.cpp \
     AUnsignedInteger.cpp \
-    AUnsignedShort.cpp
+    AUnsignedShort.cpp \
+    AClassLoader.cpp \
+    Impl/AObjectAccessor.cpp \
+    Impl/AClassClass.cpp \
+    Impl/AObjectClass.cpp \
+    ANumber.cpp
 
 HEADERS += \
     AObject.h \
@@ -40,7 +43,6 @@ HEADERS += \
     AField.h \
     AConstructor.h \
     ADestructor.h \
-    AReflectManager.h \
     AAnnotation.h \
     AString.h \
     AList.h \
@@ -54,7 +56,12 @@ HEADERS += \
     AChar.h \
     AUnsignedLong.h \
     AUnsignedInteger.h \
-    AUnsignedShort.h
+    AUnsignedShort.h \
+    AClassLoader.h \
+    Impl/AObjectAccessor.h \
+    Impl/AClassClass.h \
+    Impl/AObjectClass.h \
+    ANumber.h
 
 unix {
     target.path = /usr/lib

@@ -5,6 +5,7 @@
 
 class AAnnotation : public AObject
 {
+    A_OBJECT(AAnnotation)
 public:
     AAnnotation();
 };

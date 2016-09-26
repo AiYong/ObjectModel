@@ -1,8 +1,9 @@
 #ifndef ACONSTRUCTOR_H
 #define ACONSTRUCTOR_H
 
+#include "AMethod.h"
 
-class AConstructor
+class AConstructor : public AMethod
 {
 public:
     AConstructor();

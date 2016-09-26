@@ -2,14 +2,11 @@
 #define AOBJDEFS_H
 
 #define A_OBJECT(clazz) \
-    friend class clazz##AClass;\
-    friend class clazz##AField;\
-    friend class clazz##AMethod;\
-    friend class clazz##AConstructor;\
-    friend class clazz##ADestructor;\
+    friend class clazz##Accessor;\
     \
 
 #define Annotation(...)
 
+#define UnUsed(O) (void)O;
 
 #endif // AOBJDEFS_H

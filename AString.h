@@ -6,6 +6,10 @@ class AString
 {
 public:
     AString();
+
+public:
+
+    static AString FromLocaleString(char const* cStr);
 };
 
 #endif // ASTRING_H
