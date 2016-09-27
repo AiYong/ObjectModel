@@ -73,7 +73,22 @@ AList<AAnnotation const*> AObjectClass::GetAnnotations()
     return AList<AAnnotation const*>();
 }
 
-bool AObjectClass::IsAbstract() const
+bool AObjectClass::IsVirtual() const
+{
+
+}
+
+bool AObjectClass::IsPureVirtual() const
+{
+
+}
+
+bool AObjectClass::IsContainer() const
+{
+
+}
+
+AClass* AObjectClass::GetComponentClass()
 {
 
 }

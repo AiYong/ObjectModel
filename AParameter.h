@@ -5,12 +5,21 @@
 
 class AClass;
 
+/**
+ * @brief The AParameter class
+ */
 class AParameter
 {
 public:
 
+    /**
+     * @brief AParameter
+     */
     AParameter();
 
+    /**
+     * @brief ~AParameter
+     */
     virtual ~AParameter();
 
 public:
@@ -19,14 +28,13 @@ public:
      * @brief GetName
      * @return
      */
-    virtual AString const& GetName() = 0;
+    virtual AString const& GetName() const = 0;
 
     /**
      * @brief GetType
      * @return
      */
-    virtual AClass* GetType() = 0;
-
+    virtual AClass* GetType() const = 0;
 
 
 };

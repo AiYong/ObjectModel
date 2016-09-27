@@ -8,7 +8,6 @@ class AClass;
 class AClassLoader
 {
 public:
-    AClassLoader();
 
     /**
      * @brief 加载指定名称的AClass
@@ -29,6 +28,7 @@ public:
      * @return
      */
     static AList<AClass*> LoadFrom(AString const& strPath);
+
 };
 
 #endif // ACLASSLOADER_H

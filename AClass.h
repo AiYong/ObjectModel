@@ -39,32 +39,8 @@ public:
      */
     static AList<AClass*> LoadFrom(AString const& strPath);
 
-public:
-
     /**
-     * @brief GetName
-     * @return
-     */
-    virtual AString const& GetName() = 0;
-
-public:
-
-    /**
-     * @brief GetParentClazz
-     * @return
-     */
-    virtual AList<AClass*> const& GetParentClass() const;
-
-    /**
-     * @brief GetParentClass
-     * @param strParentName
-     * @return
-     */
-    virtual AClass* GetParentClass(AString const& strParentName) const;
-
-
-    /**
-     * @brief GetClassLoader
+     * @brief 返回类加载器
      * @return
      */
     static AClassLoader* GetClassLoader();
@@ -72,14 +48,38 @@ public:
 public:
 
     /**
-     * @brief GetField
+     * @brief 返回类名称
+     * @return
+     */
+    virtual AString const& GetName() = 0;
+
+public:
+
+    /**
+     * @brief 返回父类的AClass
+     * @return
+     */
+    virtual AList<AClass*> const& GetParentClass() const;
+
+    /**
+     * @brief 返回指定名称父类的AClass
+     * @param strParentName
+     * @return
+     */
+    virtual AClass* GetParentClass(AString const& strParentName) const;
+
+
+public:
+
+    /**
+     * @brief 返回指定名称AField
      * @param strFieldName
      * @return
      */
     virtual AField* GetField( AString const& strFieldName ) = 0;
 
     /**
-     * @brief GetFields
+     * @brief
      * @return
      */
     virtual AList<AField*> GetFields() = 0;
@@ -153,10 +153,28 @@ public:
 public:
 
     /**
-     * @brief IsAbstract
+     * @brief 测试类是不是虚的，具有虚函数的类时虚的
      * @return
      */
-    virtual bool IsAbstract() const = 0;
+    virtual bool IsVirtual() const = 0;
+
+    /**
+     * @brief 测试类是不是纯虚类
+     * @return
+     */
+    virtual bool IsPureVirtual() const = 0;
+
+    /**
+     * @brief 测试类是不是容器类
+     * @return
+     */
+    virtual bool IsContainer() const = 0;
+
+    /**
+     * @brief 返回容器类的模板类型的AClass
+     * @return
+     */
+    virtual AClass* GetComponentClass() = 0;
 
 public:
 

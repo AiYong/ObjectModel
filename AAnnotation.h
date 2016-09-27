@@ -2,12 +2,20 @@
 #define AANNOTATION_H
 
 #include "AObject.h"
+#include "AString.h"
 
 class AAnnotation : public AObject
 {
     A_OBJECT(AAnnotation)
 public:
+
     AAnnotation();
+
+    virtual ~AAnnotation();
+
+public:
+
+    virtual AString const& GetName() const;
 };
 
 #endif // AANNOTATION_H

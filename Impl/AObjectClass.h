@@ -45,7 +45,13 @@ public:
 
 public:
 
-    virtual bool IsAbstract() const;
+    virtual bool IsVirtual() const;
+
+    virtual bool IsPureVirtual() const;
+
+    virtual bool IsContainer() const;
+
+    virtual AClass* GetComponentClass();
 
 public:
 

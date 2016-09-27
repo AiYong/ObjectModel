@@ -61,7 +61,8 @@ HEADERS += \
     Impl/AObjectAccessor.h \
     Impl/AClassClass.h \
     Impl/AObjectClass.h \
-    ANumber.h
+    ANumber.h \
+    AArray.h
 
 unix {
     target.path = /usr/lib
