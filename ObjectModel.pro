@@ -62,7 +62,11 @@ HEADERS += \
     Impl/AClassClass.h \
     Impl/AObjectClass.h \
     ANumber.h \
-    AArray.h
+    AArray.h \
+    AVector.h \
+    AMap.h \
+    ASet.h \
+    AXUtility.h
 
 unix {
     target.path = /usr/lib

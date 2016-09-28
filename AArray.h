@@ -14,8 +14,6 @@ public:
 
 private:
 
-  std::array<_Ty,_Size> m_oContainer;
-
 };
 
 #endif // AARRAY_H

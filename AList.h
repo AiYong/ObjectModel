@@ -5,6 +5,11 @@
 #include <list>
 #include <type_traits>
 
+#include "AXUtility.h"
+
+template<typename _MyList,
+         typename _Base = _IteratorBase0>
+class _ListUncheckedConstIterator : public
 
 template<typename T>
 class AList : public AObject
@@ -30,74 +35,64 @@ public:
 
 public:
 
-    AList():m_oContainer()
+    AList()
     {
     }
 
     explicit AList(AllocatorType const& rAlloc = AllocatorType())
-        :m_oContainer(rAlloc)
     {
     }
 
     AList(SizeType nCount,ValueType const& rValue = ValueType(),AllocatorType const& rAlloc = AllocatorType())
-        :m_oContainer(nCount,rValue,rAlloc)
     {
     }
 
     explicit AList(SizeType nCount)
-        :m_oContainer(nCount)
     {
     }
 
     explicit AList(SizeType nCount,AllocatorType const& rAlloc = AllocatorType())
-        :m_oContainer(nCount,rAlloc)
     {
     }
 
     template<typename InputIt>
     AList(InputIt iFirst,InputIt rLast,AllocatorType const& rAlloc = AllocatorType())
-        :m_oContainer(iFirst,rLast,rAlloc)
     {
     }
 
     AList(_MyT const& rOther)
-        :m_oContainer(rOther.m_oContainer)
     {
     }
 
     AList(_MyT const& rOther,AllocatorType const& rAlloc = AllocatorType())
-        :m_oContainer(rOther.m_oContainer,rAlloc)
     {
     }
 
     AList(_MyT && rOther)
-        :m_oContainer(std::forward<_MyCT>(rOther.m_oContainer))
     {
     }
 
     AList(_MyT && rOther,AllocatorType const& rAlloc = AllocatorType())
-        :m_oContainer(std::forward<_MyCT>(rOther.m_oContainer),rAlloc)
     {
     }
 
     AList(std::initializer_list<T> oInit,AllocatorType const& rAlloc = AllocatorType())
-        :m_oContainer(oInit,rAlloc)
     {
     }
 
     AList& operator=(_MyT const& rOther)
     {
-        m_oContainer = rOther.m_oContainer;
+
     }
 
     AList& operator=(_MyT && rOther)
     {
-        m_oContainer = std::forward<_MyT>(rOther.m_oContainer);
+
     }
 
     AList operator=(std::initializer_list<T> oInit)
     {
-        m_oContainer = oInit;
+
     }
 
     ~AList()
@@ -108,94 +103,323 @@ public:
 
     void Assign(SizeType nCount,ValueType const& rValue)
     {
-        m_oContainer.assign(nCount,rValue);
+
     }
 
     template<class InputIt>
     void Assign(InputIt iFirst,InputIt iLast)
     {
-        m_oContainer.assign(iFirst,iLast);
+
     }
 
     void Assign(std::initializer_list<T> oInit)
     {
-        m_oContainer.assign(oInit);
+
     }
 
 public:
 
     AllocatorType GetAllocator() const
     {
-        return m_oContainer.get_allocator();
+
     }
 
 public:
 
     Reference Front()
     {
-        return m_oContainer.front();
+
     }
 
     ConstReference Front() const
     {
-        return m_oContainer.front();
+
     }
 
 
     Reference Back()
     {
-        return m_oContainer.back();
+
     }
 
     ConstReference Back() const
     {
-        return m_oContainer.back();
+
     }
 
 public:
 
     Iterator Begin()
     {
-        return m_oContainer.begin();
+
     }
 
     ConstIterator Begin() const
     {
-        return m_oContainer.begin();
+
     }
 
     ConstIterator CBegin() const
     {
-        return m_oContainer.cbegin();
+
     }
 
     Iterator End()
     {
-        return m_oContainer.end();
+
     }
 
     ConstIterator End() const
     {
-        return m_oContainer.end();
+
     }
 
     ConstIterator CEnd() const
     {
-        return m_oContainer.cend();
+
     }
 
 public:
 
     ReverseIterator RBegin()
     {
-        return m_oContainer.rbegin();
+
     }
 
-    Con
+    ConstReverseIterator RBegin() const
+    {
+
+    }
+
+    ConstReverseIterator CRBegin() const
+    {
+
+    }
+
+    ReverseIterator REnd()
+    {
+
+    }
+
+    ConstReverseIterator REnd() const
+    {
+
+    }
+
+    ConstReverseIterator CREnd() const
+    {
+
+    }
+
+public:
+
+    bool Empty() const
+    {
+
+    }
+
+    SizeType Size() const
+    {
+
+    }
+
+    SizeType MaxSize() const
+    {
+
+    }
+
+public:
+
+    void Clear()
+    {
+
+    }
+
+    Iterator Insert(Iterator iPos, ValueType const& rValue)
+    {
+
+    }
+
+    Iterator Insert(ConstIterator iPos, ValueType const& rValue)
+    {
+
+    }
+
+    Iterator Insert(ConstIterator iPos, ValueType &&rValue)
+    {
+
+    }
+
+    void Insert(Iterator iPos, SizeType nCount,const ValueType &rValue)
+    {
+
+    }
+
+    Iterator Insert(ConstIterator iPos, SizeType nCount,const ValueType &rValue)
+    {
+
+    }
+
+    template<class InputIt>
+    void Insert(Iterator iPos,InputIt iFirst,InputIt iLast)
+    {
+
+    }
+
+    template<class InputIt>
+    void Insert(ConstIterator iPos,InputIt iFirst,InputIt iLast)
+    {
+
+    }
+
+    Iterator Insert(ConstIterator iPos, std::initializer_list<ValueType> oInit)
+    {
+
+    }
+
+    template<typename ...Args>
+    Iterator Emplace(ConstIterator iPos,Args&& ...args)
+    {
+
+    }
+
+public:
+
+    Iterator Erase(Iterator iPos)
+    {
+
+    }
+
+    Iterator Erase(ConstIterator iPos)
+    {
+
+    }
+
+    Iterator Erase(Iterator iFirst,Iterator iLast)
+    {
+
+    }
+
+    Iterator Erase(Iterator iFirst,Iterator iLast)
+    {
+
+    }
+
+public:
+
+    void PushBack(ValueType const& rValue)
+    {
+
+    }
+
+    void PushBack(ValueType &&rValue)
+    {
+
+    }
+
+public:
+
+    template<typename... Args>
+    void EmplaceBack(Args&&... args)
+    {
+
+    }
+
+public:
+
+    void PopBack()
+    {
+
+    }
+
+public:
+
+    void PushFront(ValueType const& rValue)
+    {
+
+    }
+
+    void PushFront(ValueType && rValue)
+    {
+
+    }
+
+public:
+
+    template<typename... Args>
+    void EmplaceFront(Args&&... args)
+    {
+
+    }
+
+public:
+
+    void PopFront()
+    {
+
+    }
+
+public:
+
+    void Resize(SizeType nCount, ValueType oValue = ValueType())
+    {
+
+    }
+
+    void Resize(SizeType nCount)
+    {
+
+    }
+
+    void Resize(SizeType nCount, ValueType const& rValue)
+    {
+
+    }
+
+public:
+
+    void Swap(_MyT &rOther)
+    {
+
+    }
+
+public:
+
+    void Merge(_MyT &rOther)
+    {
+
+    }
+
+    void Merge(_MyT &&rOther)
+    {
+
+    }
+
+    template<typename Compare>
+    void Merge(_MyT &rOther,Compare comp)
+    {
+
+    }
+
+    template<typename Compare>
+    void Merge(_MyT &&rOther,Compare comp)
+    {
+
+    }
+
+public:
+
+    void Splice(ConstIterator iPos,_MyT &rOther)
+    {
+
+    }
+
+    void Splice(ConstIterator iPos, _MyT &&rOther)
+    {
+
+    }
 
 private:
-
-    _MyCT m_oContainer;
 
 };
 

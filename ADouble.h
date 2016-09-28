@@ -37,7 +37,7 @@ public:
 
     virtual AFloat* Float() const ;
 
-    virtual ADouble Double() const ;
+    virtual ADouble* Double() const ;
 
 public:
 

@@ -29,49 +29,49 @@ public:
      * @brief LongValue
      * @return
      */
-    virtual ALong LongValue() const = 0;
+    virtual ALong* LongValue() const = 0;
 
     /**
      * @brief IntegerValue
      * @return
      */
-    virtual AInteger IntegerValue() const = 0;
+    virtual AInteger* IntegerValue() const = 0;
 
     /**
      * @brief ShortValue
      * @return
      */
-    virtual AShort ShortValue() const = 0;
+    virtual AShort* ShortValue() const = 0;
 
     /**
      * @brief LongValue
      * @return
      */
-    virtual AUnsignedLong UnsignedLongValue() const = 0;
+    virtual AUnsignedLong* UnsignedLongValue() const = 0;
 
     /**
      * @brief IntegerValue
      * @return
      */
-    virtual AUnsignedInteger IUnsignedntegerValue() const = 0;
+    virtual AUnsignedInteger* IUnsignedntegerValue() const = 0;
 
     /**
      * @brief ShortValue
      * @return
      */
-    virtual AUnsignedShort UnsignedShortValue() const = 0;
+    virtual AUnsignedShort* UnsignedShortValue() const = 0;
 
     /**
      * @brief Float
      * @return
      */
-    virtual AFloat Float() const = 0;
+    virtual AFloat* Float() const = 0;
 
     /**
      * @brief Double
      * @return
      */
-    virtual ADouble Double() const = 0;
+    virtual ADouble* Double() const = 0;
 
 };
 
