@@ -3,6 +3,8 @@
 
 #include <type_traits>
 
+#include "ATypeTraits.h"
+
 using namespace std;
 
 struct _ContainerProxy;
@@ -188,22 +190,22 @@ public:
         return (*this);
     }
 
-    _Ty2& GetSecond() noexcept
+    _Ty2& _GetSecond() noexcept
     {
         return (_oMyVal2);
     }
 
-    _Ty2 const& GetSecond() const noexcept
+    _Ty2 const& _GetSecond() const noexcept
     {
         return (_oMyVal2);
     }
 
-    volatile _Ty2& GetSecond() volatile noexcept
+    volatile _Ty2& _GetSecond() volatile noexcept
     {
         return (_oMyVal2);
     }
 
-    volatile _Ty2 const& GetSecond() const volatile noexcept
+    volatile _Ty2 const& _GetSecond() const volatile noexcept
     {
         return (_oMyVal2);
     }
@@ -249,22 +251,22 @@ public:
         return (_oMyVal1);
     }
 
-    _Ty2& GetSecond() noexcept
+    _Ty2& _GetSecond() noexcept
     {
         return (_oMyVal2);
     }
 
-    _Ty2 const& GetSecond() const noexcept
+    _Ty2 const& _GetSecond() const noexcept
     {
         return (_oMyVal2);
     }
 
-    volatile _Ty2& GetSecond() volatile noexcept
+    volatile _Ty2& _GetSecond() volatile noexcept
     {
         return (_oMyVal2);
     }
 
-    volatile _Ty2 const& GetSecond() const volatile noexcept
+    volatile _Ty2 const& _GetSecond() const volatile noexcept
     {
         return (_oMyVal2);
     }
@@ -329,5 +331,49 @@ struct Iterator012 : public _Base
     typedef _Reference Reference;
 };
 
+template<typename,typename = void>
+struct _IteratorTraitsBase
+{
+};
+
+template<typename _Iter>
+struct _IteratorTraitsBase<_Iter,VoidT<
+        typename _Iter::IteratorCategory,
+        typename _Iter::ValueType,
+        typename _Iter::DifferenceType,
+        typename _Iter::Pointer,
+        typename _Iter::Reference>>
+{
+    typedef typename _Iter::IteratorCategory IteratorCategofy;
+    typedef typename _Iter::ValueType ValueType;
+    typedef typename _Iter::DifferenceType DifferenceType;
+    typedef typename _Iter::Pointer Pointer;
+    typedef typename _Iter::Reference Reference;
+}
+
+template<typename _Iter>
+struct IteratorTraits : _IteratorTraitsBase<_Iter>
+{
+}
+
+template<typename _Ty>
+struct IteratorTraits<_Ty*>
+{
+    typedef RandomAccessIteratorTag IteratorCategofy;
+    typedef _Ty ValueType;
+    typedef ptrdiff_t DifferenceType;
+    typedef _Ty* Pointer;
+    typedef _Ty& Reference;
+}
+
+template<typename _Ty>
+struct IteratorTraits< const _Ty*>
+{
+    typedef RandomAccessIteratorTag IteratorCategofy;
+    typedef _Ty ValueType;
+    typedef ptrdiff_t DifferenceType;
+    typedef _Ty* Pointer;
+    typedef _Ty& Reference;
+}
 
 #endif // AXUTILITY_H

@@ -1,7 +1,9 @@
 #ifndef ACLASSLOADER_H
 #define ACLASSLOADER_H
 
-#include <AList.h>
+#include "AList.h"
+#include "AString.h"
+
 
 class AClass;
 

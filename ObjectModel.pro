@@ -66,7 +66,10 @@ HEADERS += \
     AVector.h \
     AMap.h \
     ASet.h \
-    AXUtility.h
+    AXUtility.h \
+    ATypeTraits.h \
+    AMemory.h \
+    AUtility.h
 
 unix {
     target.path = /usr/lib
