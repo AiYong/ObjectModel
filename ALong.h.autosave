@@ -1,12 +1,13 @@
-#ifndef AINTEGER_H
-#define AINTEGER_H
+#ifndef ALONG_H
+#define ALONG_H
 
 #include "ANumber.h"
-
-class AInteger : public ANumber
+class ALong : public ANumber
 {
+    A_OBJECT()
 public:
-    AInteger();
+        
+    ALong();
 
 public:
 
@@ -28,4 +29,4 @@ public:
 
 };
 
-#endif // AINTEGER_H
+#endif // ALONG_H

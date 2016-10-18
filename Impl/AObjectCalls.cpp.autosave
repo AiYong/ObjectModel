@@ -1,0 +1,20 @@
+#include "AObject.h"
+
+void AObject::_Call(std::initializer_list<AObject **> _Args, size_t nIndex, size_t nOp)
+{
+    switch (nIndex) {
+    case 0:
+    {
+        AObject *pTarget = *(_Args.begin());
+        pTarget = new AObject();
+    }
+        break;
+    default:
+        break;
+    }
+}
+
+AClass* AObject::GetClass()
+{
+    
+}

@@ -6,7 +6,7 @@
 
 class AAnnotation : public AObject
 {
-    A_OBJECT(AAnnotation)
+    A_OBJECT()
 public:
 
     AAnnotation();

@@ -11,7 +11,7 @@ class AClass;
  */
 class AObject
 {
-    A_OBJECT(AObject)
+    A_OBJECT()
 public:
 
     /**

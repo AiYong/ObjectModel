@@ -34,7 +34,8 @@ SOURCES += \
     Impl/AObjectAccessor.cpp \
     Impl/AClassClass.cpp \
     Impl/AObjectClass.cpp \
-    ANumber.cpp
+    ANumber.cpp \
+    Impl/AObjectCalls.cpp
 
 HEADERS += \
     AObject.h \

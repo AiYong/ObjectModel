@@ -1,24 +1,12 @@
 #ifndef AOBJDEFS_H
 #define AOBJDEFS_H
 
+#include <initializer_list>
 
-#define A_OBJECT(Clazz) \
-    friend class Clazz##Accessor;\
+#define A_OBJECT() \
 public:\
-    virtual AClass* GetClass()\
-    {\
-        AClass::LoadForName(AString::FromLocaleString(#Clazz));\
-    }\
-    \
-
-#define A_TEMPLATE_OBJECT(Clazz,Component)\
-    friend class Clazz##Component##Accessor;\
-public:\
-    virtual AClass* GetClass()\
-    {\
-        AClass::LoadForName(AString::FromLocaleString(#Clazz) + AString::FromLocaleString("<") +\
-        AString::FromLocalString(#Component) + AString::FromLocalString(">"));\
-    }\
+    static void _Call(std::initializer_list<AObject*> _Args,size_t nIndex,size_t nOp);\
+    AClass* GetClass() const;\
     \
 
 #define RootObject()
