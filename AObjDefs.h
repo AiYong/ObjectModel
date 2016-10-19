@@ -3,15 +3,37 @@
 
 #include <initializer_list>
 
+/**
+ *@brief 对象访问器主模板
+ */
+template<typename T>
+class AObjectAccessor
+{
+};
+
+
 #define A_OBJECT() \
+    template<typename T>\
+    friend class AObjectAccessor;\
 public:\
-    static void _Call(std::initializer_list<AObject*> _Args,size_t nIndex,size_t nOp);\
-    AClass* GetClass() const;\
+    static AClass* GetClass() const;\
     \
 
-#define RootObject()
+#define A_ANNOTATION()\
+    template<typename T>\
+    friend class AObjectAccessor;\
+public:\
+    static AClass* GetClass() const;\
+    \
 
-#define Annotation(...)
+#define ANNOTATION_CLASS(...)   __attribute__((annotate(#__VA_ARGS__)))
+
+#ifdef __ROC__
+#define ANNOTATION(Class,...)   ANNOTATION_CLASS(Class,__VA_ARGS__)
+#else
+#define ANNOTATION(...)
+#endif
+
 
 #define UNUSED(O) (void)O;
 

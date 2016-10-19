@@ -1,6 +1,8 @@
 #ifndef AOBJECT_H
 #define AOBJECT_H
 
+#include <functional>
+
 #include "AObjDefs.h"
 
 class AClass;
@@ -24,6 +26,31 @@ public:
      */
     virtual ~AObject();
 
+public:
+
+    /**
+     * @brief 返回对象的哈希值
+     * 哈希值在std::hash模板中使用
+     * @return
+     */
+    virtual size_t HashCode() const;
+
 };
+
+namespace std {
+
+/**
+ *特化hash模板，是的AObject及其子类可作为标准容器的Key
+ */
+template<>
+struct hash<AObject*>
+{
+    size_t operator ()(AObject const* pObj)
+    {
+        return pObj->HashCode();
+    }
+};
+
+}
 
 #endif // AOBJECT_H
