@@ -33,7 +33,7 @@ public:
      * 哈希值在std::hash模板中使用
      * @return
      */
-    virtual size_t HashCode() const;
+    virtual size_t HashValue() const;
 
 };
 
@@ -47,7 +47,7 @@ struct hash<AObject*>
 {
     size_t operator ()(AObject const* pObj)
     {
-        return pObj->HashCode();
+        return pObj->HashValue();
     }
 };
 

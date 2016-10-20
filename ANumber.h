@@ -16,7 +16,7 @@ class ADouble;
 
 class ANumber : public AObject
 {
-    A_OBJECT(ANumber)
+    A_OBJECT()
 public:
 
     ANumber();

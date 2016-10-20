@@ -1,8 +1,8 @@
 #ifndef ACLASS_H
 #define ACLASS_H
-
-#include "AList.h"
 #include "AString.h"
+#include "AObject.h"
+
 
 class AField;
 class AMethod;
@@ -10,7 +10,6 @@ class AParameter;
 class AAnnotation;
 class AClassLoader;
 
-#include "AObject.h"
 
 /**
  * @brief The AClass class
@@ -33,19 +32,6 @@ public:
     static AClass* LoadForName(AString const& strName );
 
     /**
-     * @brief 加载所有AClass
-     * @return
-     */
-    static AList<AClass*> LoadAll();
-
-    /**
-     * @brief 从指定路径加载AClass
-     * @param strPath
-     * @return
-     */
-    static AList<AClass*> LoadFrom(AString const& strPath);
-
-    /**
      * @brief 返回类加载器
      * @return
      */
@@ -55,12 +41,14 @@ public:
 
     /**
      * @brief 返回类名称
+     * 该名称不带命名空间
      * @return
      */
     virtual AString const& GetName() = 0;
 
     /**
-     * @brief GetCanoncalName
+     * @brief 返回类的限定名
+     * 限定名称是指带命名空间的名称
      * @return
      */
     virtual AString const& GetCanoncalName() = 0;
@@ -68,23 +56,16 @@ public:
 public:
 
     /**
-     * @brief 返回指定名称父类的AClass
-     * @param strParentName
+     * @brief 返回基类迭代器
      * @return
      */
-    virtual AClass* GetParentType(AString const& strParentName) const;
+    virtual AClassIterator BaseBegin() = 0;
 
     /**
-     * @brief ParentTypeBegin
+     * @brief
      * @return
      */
-    virtual AClassIterator ParentTypeBegin() = 0;
-
-    /**
-     * @brief ParentTypeEnd
-     * @return
-     */
-    virtual AClassIterator ParentTypeEnd() = 0;
+    virtual AClassIterator BaseEnd() = 0;
 
 public:
 

@@ -5,6 +5,7 @@
 class AString
 {
 public:
+
     AString();
 
 public:

@@ -2,6 +2,7 @@
 #define ALONG_H
 
 #include "ANumber.h"
+
 class ALong : public ANumber
 {
     A_OBJECT()
