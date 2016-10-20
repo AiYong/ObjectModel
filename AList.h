@@ -517,6 +517,13 @@ public:
     }
     
     template<typename... _Args>
+    void _Insert(Iterator iPos,_Args&&... _rArgs)
+    {
+        _NodePtr _pTmp = _NewNode();
+        
+    }
+    
+    template<typename... _Args>
     void _EmplaceBack(_Args... _rArgs)
     {
         

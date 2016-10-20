@@ -4,8 +4,9 @@
 #include "ANumber.h"
 class ALong : public ANumber
 {
-    A_OBJECT(ALong)
+    A_OBJECT()
 public:
+        
     ALong();
 
 public:

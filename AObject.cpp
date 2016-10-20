@@ -1,7 +1,5 @@
 #include "AObject.h"
 
-#include "AClass.h"
-
 AObject::AObject()
 {
 }
@@ -10,7 +8,7 @@ AObject::~AObject()
 {
 }
 
-AClass* AObject::GetClass()
+size_t AObject::HashCode()
 {
-    AClass::LoadForName(AString::FromLocaleString("AObject"));
+    return size_t(reinterpret_cast<char*>(this));
 }

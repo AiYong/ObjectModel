@@ -29,11 +29,16 @@ public:\
 #define ANNOTATION_CLASS(...)   __attribute__((annotate(#__VA_ARGS__)))
 
 #ifdef __ROC__
-#define ANNOTATION(Class,...)   ANNOTATION_CLASS(Class,__VA_ARGS__)
+#define annotation(Class,...)   ANNOTATION_CLASS(annotation,Class,__VA_ARGS__)
 #else
-#define ANNOTATION(...)
+#define annotation(...)
 #endif
 
+#ifdef __ROC__
+#define initialvalue(value) ANNOTATION_CLASS(initialvalue,value)
+#endif
+#define initialvalue(value)
+#endif
 
 #define UNUSED(O) (void)O;
 

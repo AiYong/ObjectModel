@@ -1,6 +1,8 @@
 #include "AObjectClass.h"
 #include "AObject.h"
 
+
+
 void AObject::_Call(std::initializer_list<AObject *> _Args)
 {
 

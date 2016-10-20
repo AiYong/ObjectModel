@@ -70,7 +70,8 @@ HEADERS += \
     AXUtility.h \
     ATypeTraits.h \
     AMemory.h \
-    AUtility.h
+    AUtility.h \
+    AAccess.h
 
 unix {
     target.path = /usr/lib

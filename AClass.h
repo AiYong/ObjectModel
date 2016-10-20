@@ -17,7 +17,13 @@ class AClassLoader;
  */
 class AClass : public AObject
 {
+    A_OBJECT()
 public:
+
+    typedef AClass*             AClassIterator;
+    typedef AField*             AFieldIterator;
+    typedef AMethod*            AMethodIterator;
+    typedef AAnnotation*        AAnnotationIterator;
 
     /**
      * @brief 加载指定名称的AClass
@@ -53,21 +59,32 @@ public:
      */
     virtual AString const& GetName() = 0;
 
-public:
-
     /**
-     * @brief 返回父类的AClass
+     * @brief GetCanoncalName
      * @return
      */
-    virtual AList<AClass*> const& GetParentClass() const;
+    virtual AString const& GetCanoncalName() = 0;
+
+public:
 
     /**
      * @brief 返回指定名称父类的AClass
      * @param strParentName
      * @return
      */
-    virtual AClass* GetParentClass(AString const& strParentName) const;
+    virtual AClass* GetParentType(AString const& strParentName) const;
 
+    /**
+     * @brief ParentTypeBegin
+     * @return
+     */
+    virtual AClassIterator ParentTypeBegin() = 0;
+
+    /**
+     * @brief ParentTypeEnd
+     * @return
+     */
+    virtual AClassIterator ParentTypeEnd() = 0;
 
 public:
 
@@ -79,10 +96,16 @@ public:
     virtual AField* GetField( AString const& strFieldName ) = 0;
 
     /**
-     * @brief
+     * @brief FieldBegin
      * @return
      */
-    virtual AList<AField*> GetFields() = 0;
+    virtual AFieldIterator FieldBegin() = 0;
+
+    /**
+     * @brief FieldEnd
+     * @return
+     */
+    virtual AFieldIterator FieldEnd() = 0;
 
     /**
      * @brief GetDeclaredField
@@ -92,10 +115,16 @@ public:
     virtual AField* GetDeclaredField(AString const& strFiledName ) = 0;
 
     /**
-     * @brief GetDeclaredFields
+     * @brief DeclaredFieldBegin
      * @return
      */
-    virtual AList<AField*> const& GetDeclaredFields() = 0;
+    virtual AFieldIterator DeclaredFieldBegin() = 0;
+
+    /**
+     * @brief DeclaredFieldEnd
+     * @return
+     */
+    virtual AFieldIterator DeclaredFieldEnd() = 0;
 
 
 public:
@@ -113,13 +142,19 @@ public:
      * @param lParameters
      * @return
      */
-    virtual AMethod* GetMethod(AString const& strMethodName,std::initializer_list<AParameter*> const& lParameters) = 0;
+    virtual AMethod* GetMethod(AString const& strMethodName,std::initializer_list<AParameter*> lParameters) = 0;
 
     /**
-     * @brief GetMethods
+     * @brief MethodBegin
      * @return
      */
-    virtual AList<AMethod*>& GetMethods() ;
+    virtual AMethodIterator MethodBegin() = 0;
+
+    /**
+     * @brief MethodEnd
+     * @return
+     */
+    virtual AMethodIterator MethodEnd() = 0;
 
     /**
      * @brief GetDeclaredMethod
@@ -137,18 +172,45 @@ public:
     virtual AMethod* GetDeclaredMethod(AString const& strMethodName,std::initializer_list<AParameter*> const& lParameters) = 0;
 
     /**
-     * @brief GetMethods
+     * @brief DeclaredMethodBegin
      * @return
      */
-    virtual AList<AMethod*>& GetDeclaredMethods() = 0;
+    virtual AMethodIterator DeclaredMethodBegin() = 0;
+
+    /**
+     * @brief DeclaredMethodEnd
+     * @return
+     */
+    virtual AMethodIterator DeclaredMethodEnd() = 0;
 
 public:
 
     /**
-     * @brief GetAnnotations
+     * @brief Contain
+     * @param pAnnotationClass
      * @return
      */
-    AList<AAnnotation const*> GetAnnotations() ;
+    virtual bool Contain(AClass *pAnnotationClass) = 0;
+
+    /**
+     * @brief GetAnnotation
+     * @param pAnnotationClass
+     * @return
+     */
+    virtual AAnnotation* GetAnnotation(AClass *pAnnotationClass) = 0;
+
+    /**
+     * @brief AnnotationBegin
+     * @return
+     */
+    virtual AAnnotationIterator AnnotationBegin() = 0;
+
+    /**
+     * @brief AnnotationEnd
+     * @return
+     */
+    virtual AAnnotationIterator AnnotationEnd() = 0;
+
 
 public:
 

@@ -1,26 +1,20 @@
 #ifndef AFIELD_H
 #define AFIELD_H
 
-#include "AList.h"
+#include "AObject.h"
 #include "AString.h"
+#include "AAccess.h"
+
 
 class AClass;
-class AObject;
 class AAnnotation;
 
-class AField
+class AField : public AObject
 {
+    A_OBJECT()
 public:
 
-    enum Access
-    {
-        Private,
-        Protected,
-        Public
-    };
-
-
-public:
+    typedef AAnnotation* AnnotationIterator;
 
     /**
      * @brief AField
@@ -66,13 +60,29 @@ public:
      * @brief GetAccess
      * @return
      */
-    virtual Access GetAccess() const = 0;
+    virtual AAccess GetAccess() const = 0;
+
+
+public:
 
     /**
-     * @brief GetAnnotations
+     * @brief GetAnnotation
+     * @param pAnnotationClass
      * @return
      */
-    virtual AList<AAnnotation*> const& GetAnnotations() const = 0;
+    virtual AAnnotation* GetAnnotation(AClass *pAnnotationClass) = 0;
+
+    /**
+     * @brief AnnotationBegin
+     * @return
+     */
+    virtual AnnotationIterator AnnotationBegin() = 0;
+
+    /**
+     * @brief AnnotationEnd
+     * @return
+     */
+    virtual AnnotationIterator AnnotationEnd() = 0;
 
 
 public:

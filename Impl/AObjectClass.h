@@ -3,6 +3,7 @@
 
 #include "../AClass.h"
 
+
 class AObjectClass : public AClass
 {
 public:
