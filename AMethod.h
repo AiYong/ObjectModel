@@ -104,12 +104,11 @@ public:
 public:
 
     /**
-     * @brief 调用改方法
+     * @brief Call
      * @param pObj
-     * @param lParameters
      * @return
      */
-    virtual AObject* Call(AObject *pObj,std::initializer_list<AObject*> const& lParameters) = 0;
+    virtual AObject* Call(AObject *pObj,...) = 0;
 
 public:
 

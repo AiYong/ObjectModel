@@ -20,7 +20,7 @@ public:
     /**
      * @brief ~AParameter
      */
-    virtual ~AParameter();
+    ~AParameter();
 
 public:
 
@@ -28,14 +28,19 @@ public:
      * @brief GetName
      * @return
      */
-    virtual AString const& GetName() const = 0;
+    AString GetName() const;
 
     /**
      * @brief GetType
      * @return
      */
-    virtual AClass* GetType() const = 0;
+     AClass* GetType() const = 0;
 
+    /**
+     * @brief GetModifiers
+     * @return
+     */
+    int GetModifiers() const;
 
 };
 

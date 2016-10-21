@@ -3,7 +3,7 @@
 
 #include "AObject.h"
 #include "AString.h"
-#include "AAccess.h"
+#include "AModifier.h"
 
 
 class AClass;
@@ -43,12 +43,6 @@ public:
 public:
 
     /**
-     * @brief IsStatic
-     * @return
-     */
-    virtual bool IsStatic() const = 0;
-
-    /**
      * @brief IsArray
      * @return
      */
@@ -57,10 +51,10 @@ public:
 public:
 
     /**
-     * @brief GetAccess
+     * @brief GetModifiers
      * @return
      */
-    virtual AAccess GetAccess() const = 0;
+    virtual int GetModifiers() const = 0;
 
 
 public:
