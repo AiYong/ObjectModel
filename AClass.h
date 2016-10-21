@@ -167,13 +167,6 @@ public:
 public:
 
     /**
-     * @brief Contain
-     * @param pAnnotationClass
-     * @return
-     */
-    virtual bool Contain(AClass *pAnnotationClass) = 0;
-
-    /**
      * @brief GetAnnotation
      * @param pAnnotationClass
      * @return

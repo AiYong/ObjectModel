@@ -47,7 +47,6 @@ HEADERS += \
     AAnnotation.h \
     AString.h \
     AList.h \
-    AParameter.h \
     ALong.h \
     AInteger.h \
     ADouble.h \
@@ -71,7 +70,9 @@ HEADERS += \
     ATypeTraits.h \
     AMemory.h \
     AUtility.h \
-    AAccess.h
+    AModifier.h \
+    ACallParameterList.h \
+    AParameter.h
 
 unix {
     target.path = /usr/lib
